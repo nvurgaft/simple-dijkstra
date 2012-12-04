@@ -1,0 +1,58 @@
++-----------------------------------------------------------------------------+
+| 	Koby Vurgaft	slipperygate@gmail.com                     	      |
++-----------------------------------------------------------------------------+
+
+                          Dijkstra's Algorithm
+                          --------------------
+  
+
+Submitted Files
+---------------
+
+test_config - a testing configuration file for this project
+dbllist.h - the header file for dbllist.c
+dbllist.c - contains all the code and functions to initialize a generic bi-directional linked list
+dijkstra.h - the header file for dijkstra.c
+dijkstra.c - contains the main(), all data for the network topology and the dijkstra algorithem.
+README - This file.
+
+
+Remarks
+-------
+This application uses a graph data structure to simulate data passing through routes in a given network.
+The user writes and inserts a configuration file (plain text) with instructions for the application to 
+build and further modify the graph (add a part, remove a part, etc).
+The application then utilizes a code representation of the Dijkstra algorithem to calculate the optimal
+route from point A (start) to point B (target location).
+The application then writes a file (again with simple text) documenting the solution. 
+
+
+Known Issues
+------------
+
+May not be optimal for large scale graphs
+Loop avoidence was not implemented, nither was any learning algorithms, just basic dijkstra.
+
+
+Compiling
+---------
+
+GCC or any C complaint compiler should do the trick.
+
+
+How to write a config file
+--------------------------
+format: number + space + number + ... + number
+
+hoto ...
+
+	vertex:		0 <id>
+			<id> is the vertex numerical id (start from 0 to n)
+	edge:		1 <src> <dest> <weight>
+			<src> is the source, <dest> is the destination, <weight> is the weight of the edge
+	remove edge: 	2 <src> <dest>
+			<src> is the source, <dest> is the destination
+	calculate:	3 <src>
+			<src> is the source vertex
+	end:		4
+			frees all dynamic allocated assets, cleans up and exists the program.
